@@ -1,9 +1,4 @@
-// RANGES:
-// [<start>:<end>]
-// [<start>:<increment>:<end>]
-r1 = [0:1:10];
-
-include<threads.scad>
+include<vendor/threads.scad>
 
 module bumper(height) {
   rotate([90,0,90]) {
@@ -12,7 +7,6 @@ module bumper(height) {
         polygon(points=[
             [0,0],
             [-3,1],
-            /* [-1,6], */
             [0,6]
         ], height=1);
       }
@@ -23,7 +17,6 @@ module element(scale) {
   union() {
     cube([4,2,60]);
     bumper(0);
-    /* bumper(10); */
   }
 }
 
@@ -75,27 +68,7 @@ module thread_inner() {
   }
 }
 
-
-/*
-difference() {
-    cube(30, center=true);
-    sphere(20);
-}
-translate([0, 0, 30]) {
-    cylinder(h=40, r=10);
-}
-*/
-
-// 3D OBJECTS
-// cube
-/* cube([10,20,15], center = true); */
-
-// sphere(r, d) r=radius, d=diameter
-/* sphere(r=10); */
-
-// cylinder(h = height, r1 = BottomRadius, r2 = TopRadius, center = true/false);
-
-/* cylinder(h = 50, r1 = 10, r2 = 20, center = true); */
-/* cylinder(h=10, r1=10, r2=10, center=true); */
-/* cylinder(h=5, r1=50, r2=60, center=true); */
-/* sphere(d=40, center=true); */
+//metric_thread(3, 0.9, 4, internal=false);
+//translate([0, 0, 4]) {
+//  cylinder(h=20, r1=1.8, r2=1.8, center=false, $fn=20);
+//}
